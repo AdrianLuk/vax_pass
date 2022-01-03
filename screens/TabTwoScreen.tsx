@@ -1,14 +1,20 @@
-import { StyleSheet } from 'react-native';
+import { useContext } from 'react';
+import { Image, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import ImageContext from '../context/ImageContext';
 
 export default function TabTwoScreen() {
+  const imageContext = useContext(ImageContext);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      {imageContext?.idImage ? (
+        <Image source={{ uri: imageContext.idImage }} style={styles.image} resizeMode='contain' />
+      ) : (
+        <Text style={styles.title}>Please select an Image</Text>
+      )}
     </View>
   );
 }
@@ -19,13 +25,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    flex: 1,
+    width: '100%',
+    height: 200,
+  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });

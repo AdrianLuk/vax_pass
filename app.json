@@ -1,34 +1,41 @@
 {
   "expo": {
-    "name": "vax_pass",
+    "name": "Vaccine Certificate",
     "slug": "vax_pass",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/myvaccinepass.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you show your vaccine information."
+        }
+      ]
+    ],
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/myvaccinepass.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/myvaccinepass.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.adrianluk.vax_pass"
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/myvaccinepass.png"
     }
   }
 }
